@@ -34,10 +34,25 @@
 		89E96D4F173DAAA200E2DE9D /* PebbleVendor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E96D4E173DAAA200E2DE9D /* PebbleVendor.framework */; };
 		89E96D52173DB13700E2DE9D /* KBPebbleThing.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E96D51173DB13700E2DE9D /* KBPebbleThing.m */; };
 		89E96D54173DB46600E2DE9D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E96D53173DB46600E2DE9D /* libz.dylib */; };
-		89E96D56173DB46D00E2DE9D /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E96D55173DB46D00E2DE9D /* CoreBluetooth.framework */; };
+		89E96D56173DB46D00E2DE9D /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E96D55173DB46D00E2DE9D /* CoreBluetooth.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		89E96D58173DB47600E2DE9D /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E96D57173DB47600E2DE9D /* ExternalAccessory.framework */; };
 		89E96D5A173DB47D00E2DE9D /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E96D59173DB47D00E2DE9D /* CoreMotion.framework */; };
 		89E96D5C173DB49500E2DE9D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E96D5B173DB49500E2DE9D /* MessageUI.framework */; };
+		D321CDE217DE0FD400CBCB78 /* mobile-off.png in Resources */ = {isa = PBXBuildFile; fileRef = D321CDDE17DE0FD400CBCB78 /* mobile-off.png */; };
+		D321CDE317DE0FD400CBCB78 /* wifi-off.png in Resources */ = {isa = PBXBuildFile; fileRef = D321CDDF17DE0FD400CBCB78 /* wifi-off.png */; };
+		D321CDE417DE0FD400CBCB78 /* mobile-on.png in Resources */ = {isa = PBXBuildFile; fileRef = D321CDE017DE0FD400CBCB78 /* mobile-on.png */; };
+		D321CDE517DE0FD400CBCB78 /* wifi-on.png in Resources */ = {isa = PBXBuildFile; fileRef = D321CDE117DE0FD400CBCB78 /* wifi-on.png */; };
+		D321CDE817DE170700CBCB78 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = D321CDE617DE170700CBCB78 /* clock.png */; };
+		D321CDE917DE170700CBCB78 /* compass.png in Resources */ = {isa = PBXBuildFile; fileRef = D321CDE717DE170700CBCB78 /* compass.png */; };
+		D3320D2D17C10EB900F88DB1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D3320D2C17C10EB800F88DB1 /* Reachability.m */; };
+		D3320D2F17C10F3B00F88DB1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3320D2E17C10F3B00F88DB1 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		D3A9F82517EB057900C5C5E0 /* spinning.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A9F82417EB057900C5C5E0 /* spinning.png */; };
+		D3A9F82717EB08C700C5C5E0 /* spinner.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A9F82617EB08C700C5C5E0 /* spinner.png */; };
+		D3A9F82917EB53F700C5C5E0 /* linkoff.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A9F82817EB53F700C5C5E0 /* linkoff.png */; };
+		D3A9F82B17EB540900C5C5E0 /* linkon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A9F82A17EB540900C5C5E0 /* linkon.png */; };
+		D3A9F82D17EC3FCE00C5C5E0 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A9F82C17EC3FCE00C5C5E0 /* list.png */; };
+		D3A9F83017EC445100C5C5E0 /* orangedot.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A9F82E17EC445100C5C5E0 /* orangedot.png */; };
+		D3A9F83117EC445100C5C5E0 /* greendot.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A9F82F17EC445100C5C5E0 /* greendot.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,14 +70,14 @@
 		89AC13861746F465006847A7 /* cloudpebble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudpebble.png; sourceTree = "<group>"; };
 		89BBD7141747081B00465DA9 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
 		89BBD7161747082C00465DA9 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
-		89E96D26173DA96B00E2DE9D /* httpebble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = httpebble.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		89E96D26173DA96B00E2DE9D /* httpebble-nostromo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "httpebble-nostromo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E96D29173DA96B00E2DE9D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		89E96D2B173DA96B00E2DE9D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		89E96D2D173DA96B00E2DE9D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		89E96D31173DA96B00E2DE9D /* httpebble-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "httpebble-Info.plist"; sourceTree = "<group>"; };
+		89E96D31173DA96B00E2DE9D /* httpebble-nostromo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "httpebble-nostromo-Info.plist"; sourceTree = "<group>"; };
 		89E96D33173DA96B00E2DE9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		89E96D35173DA96B00E2DE9D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		89E96D37173DA96B00E2DE9D /* httpebble-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "httpebble-Prefix.pch"; sourceTree = "<group>"; };
+		89E96D37173DA96B00E2DE9D /* httpebble-nostromo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "httpebble-nostromo-Prefix.pch"; sourceTree = "<group>"; };
 		89E96D38173DA96B00E2DE9D /* KBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KBAppDelegate.h; sourceTree = "<group>"; };
 		89E96D39173DA96B00E2DE9D /* KBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KBAppDelegate.m; sourceTree = "<group>"; };
 		89E96D3B173DA96B00E2DE9D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -80,6 +95,22 @@
 		89E96D57173DB47600E2DE9D /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		89E96D59173DB47D00E2DE9D /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		89E96D5B173DB49500E2DE9D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		D321CDDE17DE0FD400CBCB78 /* mobile-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mobile-off.png"; path = "../../../../Downloads/7 Icons-#aaaaaa-32px/PNG/mobile-off.png"; sourceTree = "<group>"; };
+		D321CDDF17DE0FD400CBCB78 /* wifi-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi-off.png"; path = "../../../../Downloads/7 Icons-#aaaaaa-32px/PNG/wifi-off.png"; sourceTree = "<group>"; };
+		D321CDE017DE0FD400CBCB78 /* mobile-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mobile-on.png"; path = "../../../../Downloads/7 Icons-#000000-32px/PNG/mobile-on.png"; sourceTree = "<group>"; };
+		D321CDE117DE0FD400CBCB78 /* wifi-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi-on.png"; path = "../../../../Downloads/7 Icons-#000000-32px/PNG/wifi-on.png"; sourceTree = "<group>"; };
+		D321CDE617DE170700CBCB78 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = clock.png; path = "../../../../Downloads/7 Icons-#ffffff-32px/PNG/clock.png"; sourceTree = "<group>"; };
+		D321CDE717DE170700CBCB78 /* compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = compass.png; path = "../../../../Downloads/7 Icons-#ffffff-32px/PNG/compass.png"; sourceTree = "<group>"; };
+		D3320D2B17C10EB700F88DB1 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		D3320D2C17C10EB800F88DB1 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		D3320D2E17C10F3B00F88DB1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D3A9F82417EB057900C5C5E0 /* spinning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinning.png; path = ../../../../Desktop/spinning.png; sourceTree = "<group>"; };
+		D3A9F82617EB08C700C5C5E0 /* spinner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spinner.png; sourceTree = "<group>"; };
+		D3A9F82817EB53F700C5C5E0 /* linkoff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linkoff.png; sourceTree = "<group>"; };
+		D3A9F82A17EB540900C5C5E0 /* linkon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linkon.png; sourceTree = "<group>"; };
+		D3A9F82C17EC3FCE00C5C5E0 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
+		D3A9F82E17EC445100C5C5E0 /* orangedot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orangedot.png; sourceTree = "<group>"; };
+		D3A9F82F17EC445100C5C5E0 /* greendot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greendot.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3320D2F17C10F3B00F88DB1 /* SystemConfiguration.framework in Frameworks */,
 				89AC1385174632E4006847A7 /* CoreLocation.framework in Frameworks */,
 				89AC13831745B12D006847A7 /* CoreData.framework in Frameworks */,
 				89E96D5C173DB49500E2DE9D /* MessageUI.framework in Frameworks */,
@@ -108,6 +140,7 @@
 		89E96D1D173DA96B00E2DE9D = {
 			isa = PBXGroup;
 			children = (
+				D3320D2E17C10F3B00F88DB1 /* SystemConfiguration.framework */,
 				89AC1384174632E4006847A7 /* CoreLocation.framework */,
 				89AC13821745B12D006847A7 /* CoreData.framework */,
 				89AC133F17458F0F006847A7 /* PebbleModel.xcdatamodeld */,
@@ -127,7 +160,7 @@
 		89E96D27173DA96B00E2DE9D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				89E96D26173DA96B00E2DE9D /* httpebble.app */,
+				89E96D26173DA96B00E2DE9D /* httpebble-nostromo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,6 +180,8 @@
 		89E96D2F173DA96B00E2DE9D /* httpebble */ = {
 			isa = PBXGroup;
 			children = (
+				D3320D2B17C10EB700F88DB1 /* Reachability.h */,
+				D3320D2C17C10EB800F88DB1 /* Reachability.m */,
 				89E96D38173DA96B00E2DE9D /* KBAppDelegate.h */,
 				89E96D39173DA96B00E2DE9D /* KBAppDelegate.m */,
 				89E96D41173DA96B00E2DE9D /* KBViewController.h */,
@@ -164,6 +199,19 @@
 		89E96D30173DA96B00E2DE9D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D3A9F82C17EC3FCE00C5C5E0 /* list.png */,
+				D3A9F82E17EC445100C5C5E0 /* orangedot.png */,
+				D3A9F82F17EC445100C5C5E0 /* greendot.png */,
+				D3A9F82A17EB540900C5C5E0 /* linkon.png */,
+				D3A9F82817EB53F700C5C5E0 /* linkoff.png */,
+				D3A9F82617EB08C700C5C5E0 /* spinner.png */,
+				D3A9F82417EB057900C5C5E0 /* spinning.png */,
+				D321CDE617DE170700CBCB78 /* clock.png */,
+				D321CDE717DE170700CBCB78 /* compass.png */,
+				D321CDDE17DE0FD400CBCB78 /* mobile-off.png */,
+				D321CDDF17DE0FD400CBCB78 /* wifi-off.png */,
+				D321CDE017DE0FD400CBCB78 /* mobile-on.png */,
+				D321CDE117DE0FD400CBCB78 /* wifi-on.png */,
 				336523A017548F1A003E3767 /* whiteButton.png */,
 				336523A117548F1A003E3767 /* whiteButton@2x.png */,
 				336523A217548F1A003E3767 /* whiteButtonHighlight.png */,
@@ -171,10 +219,10 @@
 				89BBD7161747082C00465DA9 /* icon@2x.png */,
 				89BBD7141747081B00465DA9 /* icon.png */,
 				89AC13861746F465006847A7 /* cloudpebble.png */,
-				89E96D31173DA96B00E2DE9D /* httpebble-Info.plist */,
+				89E96D31173DA96B00E2DE9D /* httpebble-nostromo-Info.plist */,
 				89E96D32173DA96B00E2DE9D /* InfoPlist.strings */,
 				89E96D35173DA96B00E2DE9D /* main.m */,
-				89E96D37173DA96B00E2DE9D /* httpebble-Prefix.pch */,
+				89E96D37173DA96B00E2DE9D /* httpebble-nostromo-Prefix.pch */,
 				89E96D3B173DA96B00E2DE9D /* Default.png */,
 				89E96D3D173DA96B00E2DE9D /* Default@2x.png */,
 				89E96D3F173DA96B00E2DE9D /* Default-568h@2x.png */,
@@ -185,9 +233,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		89E96D25173DA96B00E2DE9D /* httpebble */ = {
+		89E96D25173DA96B00E2DE9D /* httpebble-nostromo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 89E96D49173DA96B00E2DE9D /* Build configuration list for PBXNativeTarget "httpebble" */;
+			buildConfigurationList = 89E96D49173DA96B00E2DE9D /* Build configuration list for PBXNativeTarget "httpebble-nostromo" */;
 			buildPhases = (
 				89E96D22173DA96B00E2DE9D /* Sources */,
 				89E96D23173DA96B00E2DE9D /* Frameworks */,
@@ -197,9 +245,9 @@
 			);
 			dependencies = (
 			);
-			name = httpebble;
+			name = "httpebble-nostromo";
 			productName = httpebble;
-			productReference = 89E96D26173DA96B00E2DE9D /* httpebble.app */;
+			productReference = 89E96D26173DA96B00E2DE9D /* httpebble-nostromo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -211,8 +259,13 @@
 				CLASSPREFIX = KB;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Katharine Berry";
+				TargetAttributes = {
+					89E96D25173DA96B00E2DE9D = {
+						DevelopmentTeam = GFMNX3Q95W;
+					};
+				};
 			};
-			buildConfigurationList = 89E96D21173DA96B00E2DE9D /* Build configuration list for PBXProject "httpebble" */;
+			buildConfigurationList = 89E96D21173DA96B00E2DE9D /* Build configuration list for PBXProject "httpebble-nostromo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -224,7 +277,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				89E96D25173DA96B00E2DE9D /* httpebble */,
+				89E96D25173DA96B00E2DE9D /* httpebble-nostromo */,
 			);
 		};
 /* End PBXProject section */
@@ -246,6 +299,19 @@
 				336523A517548F1A003E3767 /* whiteButton@2x.png in Resources */,
 				336523A617548F1A003E3767 /* whiteButtonHighlight.png in Resources */,
 				336523A717548F1A003E3767 /* whiteButtonHighlight@2x.png in Resources */,
+				D321CDE217DE0FD400CBCB78 /* mobile-off.png in Resources */,
+				D321CDE317DE0FD400CBCB78 /* wifi-off.png in Resources */,
+				D321CDE417DE0FD400CBCB78 /* mobile-on.png in Resources */,
+				D321CDE517DE0FD400CBCB78 /* wifi-on.png in Resources */,
+				D321CDE817DE170700CBCB78 /* clock.png in Resources */,
+				D321CDE917DE170700CBCB78 /* compass.png in Resources */,
+				D3A9F82517EB057900C5C5E0 /* spinning.png in Resources */,
+				D3A9F82717EB08C700C5C5E0 /* spinner.png in Resources */,
+				D3A9F82917EB53F700C5C5E0 /* linkoff.png in Resources */,
+				D3A9F82B17EB540900C5C5E0 /* linkon.png in Resources */,
+				D3A9F82D17EC3FCE00C5C5E0 /* list.png in Resources */,
+				D3A9F83017EC445100C5C5E0 /* orangedot.png in Resources */,
+				D3A9F83117EC445100C5C5E0 /* greendot.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +329,7 @@
 				89AC134117458F0F006847A7 /* PebbleModel.xcdatamodeld in Sources */,
 				89AC134717459B20006847A7 /* KBPebbleValue.m in Sources */,
 				89A25B69174DB490008BED04 /* NSData+Base64.m in Sources */,
+				D3320D2D17C10EB900F88DB1 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,16 +414,18 @@
 		89E96D4A173DA96B00E2DE9D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "httpebble/httpebble-Prefix.pch";
-				INFOPLIST_FILE = "httpebble/httpebble-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				GCC_PREFIX_HEADER = "httpebble/httpebble-nostromo-Prefix.pch";
+				INFOPLIST_FILE = "httpebble/httpebble-nostromo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "httpebble-nostromo";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -364,16 +433,18 @@
 		89E96D4B173DA96B00E2DE9D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "httpebble/httpebble-Prefix.pch";
-				INFOPLIST_FILE = "httpebble/httpebble-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				GCC_PREFIX_HEADER = "httpebble/httpebble-nostromo-Prefix.pch";
+				INFOPLIST_FILE = "httpebble/httpebble-nostromo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "httpebble-nostromo";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -381,7 +452,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		89E96D21173DA96B00E2DE9D /* Build configuration list for PBXProject "httpebble" */ = {
+		89E96D21173DA96B00E2DE9D /* Build configuration list for PBXProject "httpebble-nostromo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				89E96D47173DA96B00E2DE9D /* Debug */,
@@ -390,7 +461,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		89E96D49173DA96B00E2DE9D /* Build configuration list for PBXNativeTarget "httpebble" */ = {
+		89E96D49173DA96B00E2DE9D /* Build configuration list for PBXNativeTarget "httpebble-nostromo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				89E96D4A173DA96B00E2DE9D /* Debug */,

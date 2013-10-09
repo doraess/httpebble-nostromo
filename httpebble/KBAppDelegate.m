@@ -11,6 +11,7 @@
 #import "KBViewController.h"
 #import  <PebbleKit/PebbleKit.h>
 #import "KBPebbleThing.h"
+#import "Reachability.h"
 
 @implementation KBAppDelegate
 
@@ -20,12 +21,24 @@
     [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"ShouldBeConnected": @(YES)}];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    // Initialize Reachability
+    Reachability *reachability = [Reachability reachabilityWithHostname:@"www.google.com"];
+    // Start Monitoring
+    [reachability startNotifier];
+    
+    [[UIDevice currentDevice] setBatteryMonitoringEnabled:YES];
+    
     self.viewController = [[KBViewController alloc] initWithNibName:@"KBViewController" bundle:nil];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
     self.pebbleThing = [[KBPebbleThing alloc] initWithDelegate:self.viewController];
     self.viewController.pebbleThing = self.pebbleThing;
+    
+    [[UIApplication sharedApplication]registerForRemoteNotificationTypes: UIRemoteNotificationTypeBadge |
+     UIRemoteNotificationTypeAlert |
+     UIRemoteNotificationTypeSound];
 
     return YES;
 }
@@ -55,6 +68,18 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+
 }
+
+/*-(BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder
+{
+    return YES;
+}
+
+-(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder
+{
+    return YES;
+}*/
+
 
 @end

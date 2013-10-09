@@ -12,6 +12,7 @@
 #import <PebbleKit/PebbleKit.h>
 #import <CoreData/CoreData.h>
 #import <CoreLocation/CoreLocation.h>
+
 #define HTTP_UUID { 0x91, 0x41, 0xB6, 0x28, 0xBC, 0x89, 0x49, 0x8E, 0xB1, 0x47, 0x04, 0x9F, 0x49, 0xC0, 0x99, 0xAD }
 
 #define HTTP_URL_KEY @(0xFFFF)
@@ -36,6 +37,9 @@
 #define HTTP_LONGITUDE_KEY @(0xFFE2)
 #define HTTP_ALTITUDE_KEY @(0xFFE3)
 
+#define HTTP_LOG_KEY @(0xFFEE)
+#define HTTP_BATTERY_KEY @(0xFFED)
+
 @interface KBPebbleThing () <PBPebbleCentralDelegate, CLLocationManagerDelegate> {
     PBWatch *ourWatch; // We actually never really use this.
     id updateHandler;
@@ -57,6 +61,8 @@
 - (BOOL)handleWatch:(PBWatch *)watch deleteFromMessage:(NSDictionary *)message;
 - (BOOL)handleWatch:(PBWatch *)watch timeFromMessage:(NSDictionary *)message;
 - (BOOL)handleWatch:(PBWatch *)watch locationFromMessage:(NSDictionary *)message;
+- (BOOL)handleWatch:(PBWatch *)watch logFromMessage:(NSDictionary *)message;
+- (BOOL)handleWatch:(PBWatch *)watch batteryFromMessage:(NSDictionary *)message;
 - (KBPebbleValue*)getStoredValueForApp:(NSNumber*)appID withKey:(NSNumber*)key;
 - (void)storeId:(id)value InPebbleValue:(KBPebbleValue*)pv;
 - (id)getIdFromPebbleValue:(KBPebbleValue*)pv;
@@ -180,8 +186,16 @@ NSNumber* floatAsPBNumber(float value) {
                                    HTTP_LONGITUDE_KEY: floatAsPBNumber(location.coordinate.longitude),
                                    HTTP_ALTITUDE_KEY: floatAsPBNumber(location.altitude)
                                    };
+        NSDictionary *response_original = @{HTTP_LOCATION_KEY: [NSNumber numberWithFloat:                                                               location.horizontalAccuracy],
+                                   HTTP_LATITUDE_KEY: [NSNumber numberWithFloat:location.coordinate.latitude],
+                                   HTTP_LONGITUDE_KEY: [NSNumber numberWithFloat:location.coordinate.longitude],
+                                   HTTP_ALTITUDE_KEY: [NSNumber numberWithFloat:location.altitude]
+                                   };
         NSLog(@"Sending location dictionary.");
         [ourWatch appMessagesPushUpdate:response onSent:nil];
+        if(_delegate && [_delegate respondsToSelector:@selector(pebbleThing:messageResponse:)]) {
+            [_delegate pebbleThing:self messageResponse:response_original];
+        }
     }
 }
 
@@ -220,6 +234,11 @@ void httpErrorResponse(PBWatch* watch, NSNumber* success_key, NSInteger status, 
 
 - (BOOL)handleWatch:(PBWatch *)watch message:(NSDictionary *)message {
     NSLog(@"Message received.");
+    
+    if(_delegate && [_delegate respondsToSelector:@selector(pebbleThing:messageReceived:)]) {
+        [_delegate pebbleThing:self messageReceived:message];
+    }
+    
     if([message objectForKey:HTTP_URL_KEY]) {
         return [self handleWatch:watch HTTPRequestFromMessage:message];
     }
@@ -241,6 +260,13 @@ void httpErrorResponse(PBWatch* watch, NSNumber* success_key, NSInteger status, 
     if([message objectForKey:HTTP_LOCATION_KEY]) {
         return [self handleWatch:watch locationFromMessage:message];
     }
+    if([message objectForKey:HTTP_LOG_KEY]) {
+        return [self handleWatch:watch logFromMessage:message];
+    }
+    if([message objectForKey:HTTP_BATTERY_KEY]) {
+        return [self handleWatch:watch batteryFromMessage:message];
+    }
+    
     return NO;
 }
 
@@ -255,16 +281,25 @@ void httpErrorResponse(PBWatch* watch, NSNumber* success_key, NSInteger status, 
     if(error) {
         NSLog(@"Something went wrong: %@", error);
         httpErrorResponse(watch, success_key, 400, app_id);
+        if([_delegate respondsToSelector:@selector(pebbleThing:httpErrortoPebble:)]) {
+            [_delegate pebbleThing:self httpErrortoPebble:error];
+        }
         return;
     }
     if(status_code < 200 || status_code >= 300) {
         NSLog(@"HTTP error %d", status_code);
         httpErrorResponse(watch, success_key, status_code, app_id);
+        if([_delegate respondsToSelector:@selector(pebbleThing:httpErrortoPebble:)]) {
+            [_delegate pebbleThing:self httpErrortoPebble:error];
+        }
         return;
     }
     NSError *json_error = nil;
     NSLog(@"Raw response: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     NSDictionary *json_response = [NSJSONSerialization JSONObjectWithData:data options:0 error:&json_error];
+    if(_delegate && [_delegate respondsToSelector:@selector(pebbleThing:messageResponse:)]) {
+        [_delegate pebbleThing:self httpResponse:json_response];
+    }
     if(error) {
         NSLog(@"Invalid JSON: %@", json_error);
         httpErrorResponse(watch, success_key, 500, app_id);
@@ -329,11 +364,20 @@ void httpErrorResponse(PBWatch* watch, NSNumber* success_key, NSInteger status, 
     [response_dict setObject:[NSNumber numberWithUint16:status_code] forKey:HTTP_STATUS_KEY];
     [response_dict setObject:app_id forKey:HTTP_APP_ID_KEY];
     [response_dict setObject:cookie forKey:HTTP_COOKIE_KEY];
-    NSLog(@"Pushing dictionary to watch: %@", response_dict);
+    
+    NSLog(@"Pushing dictionary to watch : %@", response_dict);
     [watch appMessagesPushUpdate:response_dict onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
         if(error) {
             NSLog(@"Response send failed: %@", error);
+            if(_delegate && [_delegate respondsToSelector:@selector(pebbleThing:httpResponsetoPebble:)]) {
+                [_delegate pebbleThing:self httpResponsetoPebble:FALSE];
+            }
+        } else {
+            if(_delegate && [_delegate respondsToSelector:@selector(pebbleThing:httpResponsetoPebble:)]) {
+                [_delegate pebbleThing:self httpResponsetoPebble:TRUE];
+            }
         }
+     
     }];
 }
 
@@ -377,6 +421,10 @@ void httpErrorResponse(PBWatch* watch, NSNumber* success_key, NSInteger status, 
         }
     }
     NSLog(@"Made request with data: %@", request_dict);
+    
+    if(_delegate && [_delegate respondsToSelector:@selector(pebbleThing:httpRequest:)]) {
+        [_delegate pebbleThing:self httpRequest:request_dict];
+    }
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue currentQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
@@ -551,12 +599,37 @@ void httpErrorResponse(PBWatch* watch, NSNumber* success_key, NSInteger status, 
     response[HTTP_TIME_KEY] = [NSNumber numberWithUint32:time(nil)];
     NSLog(@"Sending tz data: %@", response);
     [watch appMessagesPushUpdate:response onSent:nil];
+    
+    if([_delegate respondsToSelector:@selector(pebbleThing:messageResponse:)]) {
+        [_delegate pebbleThing:self messageResponse:response];
+    }
+    
     return YES;
 }
 
 -(BOOL)handleWatch:(PBWatch *)watch locationFromMessage:(NSDictionary *)message {
     hasPendingLocationRequest = YES;
     [locationManager startUpdatingLocation];
+    return YES;
+}
+
+- (BOOL)handleWatch:(PBWatch *)watch logFromMessage:(NSDictionary *)message {
+    NSLog([message objectForKey:HTTP_LOG_KEY]);
+    
+    if([_delegate respondsToSelector:@selector(pebbleThing:messageResponse:)]) {
+        [_delegate pebbleThing:self messageResponse:message];
+    }
+    return YES;
+}
+
+- (BOOL)handleWatch:(PBWatch *)watch batteryFromMessage:(NSDictionary *)message {
+    NSLog(@"Sending battery level: %f", [[UIDevice currentDevice] batteryLevel]);
+    
+    [watch appMessagesPushUpdate:@{HTTP_BATTERY_KEY: [NSNumber numberWithFloat:[[UIDevice currentDevice] batteryLevel]]}  onSent:nil];
+    
+    if([_delegate respondsToSelector:@selector(pebbleThing:messageResponse:)]) {
+        [_delegate pebbleThing:self messageResponse:message];
+    }
     return YES;
 }
 

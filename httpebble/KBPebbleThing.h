@@ -19,6 +19,13 @@
 - (void)pebbleThing:(KBPebbleThing*)thing found:(PBWatch*)watch;
 - (void)pebbleThing:(KBPebbleThing*)thing lost:(PBWatch *)watch;
 
+- (void)pebbleThing:(KBPebbleThing*)thing messageReceived:(NSDictionary *)message;
+- (void)pebbleThing:(KBPebbleThing*)thing messageResponse:(NSDictionary *)response;
+- (void)pebbleThing:(KBPebbleThing*)thing httpRequest:(NSDictionary *)response;
+- (void)pebbleThing:(KBPebbleThing*)thing httpResponse:(NSDictionary *)response;
+- (void)pebbleThing:(KBPebbleThing*)thing httpResponsetoPebble:(BOOL) response;
+- (void)pebbleThing:(KBPebbleThing*)thing httpErrortoPebble:(NSError *)error;
+
 @end
 
 @interface KBPebbleThing : NSObject
